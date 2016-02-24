@@ -39,6 +39,7 @@ set guioptions-=L
 set guioptions-=b
 " 高亮显示当前行
 set cursorline
+set cursorcolumn
 " 显示行号
 set nu
 " 搜索时高亮关键字
@@ -53,13 +54,6 @@ set ruler
 set showmode
 " 显示当前输入的命令
 set showcmd
-" 弹出框样式，比如自动补全的下拉框。
-highlight Pmenu    guibg=darkgrey  guifg=black
-highlight PmenuSel guibg=lightgrey guifg=black
-hi CursorLine term=none cterm=none ctermbg=234 guibg=#293739
-hi Search term=none cterm=none ctermfg=White ctermbg=darkyellow
-hi Visual term=none cterm=none ctermfg=White ctermbg=0 guibg=LightGrey
-hi MatchParen term=none ctermbg=235 guibg=blue
 
 " 为C程序提供自动缩进
 set smartindent
@@ -92,13 +86,15 @@ call vundle#begin('~/.vim/bundle/')
 Plugin 'gmarik/Vundle.vim'
 
 " CSS颜色值背景显示定义的颜色
-"Plugin 'ap/vim-css-color'
+Plugin 'ap/vim-css-color'
+
+" html5高亮
+Plugin 'othree/html5.vim'
 "
-"" html5高亮
-"Plugin 'othree/html5.vim'
-"
-"" JS高亮及HTML/JS混排缩进改善
-"Plugin 'pangloss/vim-javascript'
+" JS高亮及HTML/JS混排缩进改善
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'xptemplate'
 
 " 侧边树状文件夹浏览
 Plugin 'scrooloose/nerdtree'
@@ -254,8 +250,12 @@ nnoremap <Leader>wk <C-W>k
 nnoremap <Leader>wj <C-W>j
 
 nnoremap <Leader>gf :GoFmt<CR>
+nnoremap <Leader>gi :GoImports<CR>
 nnoremap <Leader>gc :GoCallers<CR>
 
 :colorscheme molokai
 
-set tags+=/Users/sunchao/workspace/Eclipse_Project/getui/tags
+" 弹出框样式，比如自动补全的下拉框。
+hi Pmenu    guibg=darkgrey  guifg=black
+hi PmenuSel guibg=lightgrey guifg=black
+hi CursorColumn term=none cterm=none ctermbg=232
