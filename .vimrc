@@ -261,3 +261,4 @@ nnoremap <Leader>gc :GoCallers<CR>
 hi Pmenu    guibg=darkgrey  guifg=black
 hi PmenuSel guibg=lightgrey guifg=black
 hi CursorColumn term=none cterm=none ctermbg=232
+hi Search term=reverse cterm=reverse ctermfg=58 ctermbg=118 gui=reverse guifg=#C4BE89 guibg=#000000
