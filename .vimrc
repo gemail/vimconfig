@@ -220,6 +220,8 @@ map <leader>xml     :call Xmlfmt()<CR>
 map <leader>html    :call Htmlfmt()<CR>
 map <leader>mmk     :call MMK()<CR>
 map <leader>bmk     :call BMK()<CR>
+map <leader>gr      :GoReferrers<CR>
+map <leader>gm      :GoRename<CR>
 
 " 定义快捷键到行首和行尾
 nmap <Leader>lb 0
