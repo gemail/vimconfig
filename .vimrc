@@ -178,7 +178,6 @@ imap <C-u> <C-x><C-o>
 map <C-h> :NERDTreeToggle<CR>
 nmap <F1> :TagbarToggle<CR>
 
-
 function MMK()
     call append(line("."), "/*")
     call append(line(".")+1, " |    Function:")
@@ -259,5 +258,5 @@ nnoremap <Leader>gc :GoCallers<CR>
 " 弹出框样式，比如自动补全的下拉框。
 hi Pmenu    guibg=darkgrey  guifg=black
 hi PmenuSel guibg=lightgrey guifg=black
-hi CursorColumn term=none cterm=none ctermbg=232
+hi CursorColumn term=underline ctermbg=234 guibg=#293739
 hi Search term=reverse cterm=reverse ctermfg=58 ctermbg=118 gui=reverse guifg=#C4BE89 guibg=#000000
