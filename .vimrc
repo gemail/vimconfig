@@ -62,6 +62,7 @@ set cindent
 set expandtab
 set backspace=indent,eol,start
 set tabstop=4
+set paste
 
 "==============================================================================
 "========================== start Vundle
@@ -98,6 +99,8 @@ Plugin 'xptemplate'
 
 " 侧边树状文件夹浏览
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'python.vim'
 
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
@@ -154,11 +157,9 @@ let g:airline_mode_map = {
 
 set laststatus=2
 
-" airline-tabline扩展设计，若需要更专业的buffer列表显示插件，
-" 可以使用 techlivezheng/vim-plugin-minibufexpl 插件！
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-"let g:airline#extensions#tabline#fnamemod = ':p:t' " 只显示文件名，不显示路径内容。
+let g:pydiction_location = '/path/to/complete-dict'
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_menu_height = 3
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -220,6 +221,7 @@ map <leader>mmk     :call MMK()<CR>
 map <leader>bmk     :call BMK()<CR>
 map <leader>gr      :GoReferrers<CR>
 map <leader>gm      :GoRename<CR>
+map <leader>gg      :GoRun<CR>
 
 " 定义快捷键到行首和行尾
 nmap <Leader>lb 0
@@ -260,3 +262,4 @@ hi Pmenu    guibg=darkgrey  guifg=black
 hi PmenuSel guibg=lightgrey guifg=black
 hi CursorColumn term=underline ctermbg=234 guibg=#293739
 hi Search term=reverse cterm=reverse ctermfg=58 ctermbg=118 gui=reverse guifg=#C4BE89 guibg=#000000
+set tags=tags;/
