@@ -70,21 +70,13 @@ set paste
 filetype off
 
 " 此处规定Vundle的路径
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin('~/.vim/bundle/')
+set rtp+=~/.vim/bundle/Vundle.vim
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+call vundle#begin()
 
-" 插件管理插件。
-" 所有插件在Filetype之间添加。可以是以下三种形式：
-" vim.org上的脚本名                 Plugin php
-" Plugin github上的作者/项目名称    Plugin gmark/vundle
-" Plugin 一个完整的Git路径          Plugin git://git.wincent.com/commit.git
-" Vundle常用指令
-" :PluginList                       列出已经安装的插件
-" :PluginInstall                    安装所有配置文件中的插件
-" :PluginInstall!                   更新所有插件
-" :PluginSearch                     搜索插件
-" :PluginClean!                     根据配置文件删除插件
-Plugin 'gmarik/Vundle.vim'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " CSS颜色值背景显示定义的颜色
 Plugin 'ap/vim-css-color'
@@ -116,19 +108,17 @@ let g:tagbar_left =0
 
 " golang相关插件
 Plugin 'fatih/vim-go'
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 Plugin 'jsbeautify'
-
-" 代码片段，需要python支持
-"Plugin 'SirVer/ultisnips'
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-k>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-j>"
-"let g:UltiSnipsSnippetDirectories=["ultisnippets"]
-
-" YCM插件。 windows安装麻烦，而且如果有msvcr90.dll的话，还有冲突
-Plugin 'Valloric/YouCompleteMe'
 
 " 多光标支持。
 Plugin 'terryma/vim-multiple-cursors'
@@ -140,20 +130,6 @@ Plugin 'fatih/molokai'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
-
-let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n'  : '标准',
-      \ 'i'  : '插入',
-      \ 'R'  : '替换',
-      \ 'c'  : '命令行',
-      \ 'v'  : '可视',
-      \ 'V'  : '可视',
-      \ '' : '可视',
-      \ 's'  : '选择',
-      \ 'S'  : '选择',
-      \ '' : '选择',
-      \ }
 
 set laststatus=2
 
@@ -174,8 +150,6 @@ filetype plugin on
 
 " 自动开启语法高亮
 syn on
-" 映射代码实例的快捷键
-imap <C-u> <C-x><C-o>
 map <C-h> :NERDTreeToggle<CR>
 nmap <F1> :TagbarToggle<CR>
 
@@ -252,10 +226,11 @@ nnoremap <Leader>wk <C-W>k
 nnoremap <Leader>wj <C-W>j
 
 nnoremap <Leader>gf :GoFmt<CR>
+nnoremap <Leader>gd <C-]>
 nnoremap <Leader>gi :GoImports<CR>
 nnoremap <Leader>gc :GoCallers<CR>
 
-:colorscheme molokai
+colorscheme molokai
 
 " 弹出框样式，比如自动补全的下拉框。
 hi Pmenu    guibg=darkgrey  guifg=black
