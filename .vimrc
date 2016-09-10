@@ -62,7 +62,6 @@ set cindent
 set expandtab
 set backspace=indent,eol,start
 set tabstop=4
-set paste
 
 "==============================================================================
 "========================== start Vundle
@@ -117,6 +116,11 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+let g:go_fmt_command = "goimports"
+
+Plugin 'Shougo/neocomplete.vim'
+let g:neocomplete#enable_at_startup = 1
 
 Plugin 'jsbeautify'
 
@@ -150,6 +154,7 @@ filetype plugin on
 
 " 自动开启语法高亮
 syn on
+set completeopt-=preview
 map <C-h> :NERDTreeToggle<CR>
 nmap <F1> :TagbarToggle<CR>
 
@@ -193,9 +198,14 @@ map <leader>xml     :call Xmlfmt()<CR>
 map <leader>html    :call Htmlfmt()<CR>
 map <leader>mmk     :call MMK()<CR>
 map <leader>bmk     :call BMK()<CR>
-map <leader>gr      :GoReferrers<CR>
-map <leader>gm      :GoRename<CR>
-map <leader>gg      :GoRun<CR>
+nnoremap <Leader>gf :GoFmt<CR>
+nnoremap <Leader>gd <C-]>
+nnoremap <Leader>gc :GoCallers<CR>
+nnoremap <leader>gr :GoReferrers<CR>
+nnoremap <leader>gm :GoRename<CR>
+nnoremap <leader>gu :GoInfo<CR>
+nnoremap <leader>gl :GoLint<CR>
+nnoremap <leader>gb :GoBuild<CR>
 
 " 定义快捷键到行首和行尾
 nmap <Leader>lb 0
@@ -225,16 +235,13 @@ nnoremap <Leader>wk <C-W>k
 " 跳转至下方的子窗口
 nnoremap <Leader>wj <C-W>j
 
-nnoremap <Leader>gf :GoFmt<CR>
-nnoremap <Leader>gd <C-]>
-nnoremap <Leader>gi :GoImports<CR>
-nnoremap <Leader>gc :GoCallers<CR>
-
 colorscheme molokai
 
 " 弹出框样式，比如自动补全的下拉框。
 hi Pmenu    guibg=darkgrey  guifg=black
 hi PmenuSel guibg=lightgrey guifg=black
-hi CursorColumn term=underline ctermbg=234 guibg=#293739
+hi CursorColumn ctermbg=16 guibg=black
+hi CursorLine ctermbg=16 guibg=black
 hi Search term=reverse cterm=reverse ctermfg=58 ctermbg=118 gui=reverse guifg=#C4BE89 guibg=#000000
-set tags=tags;/
+set tags+=~/.vim/tags/python.tags
+set tags+=tags;/
