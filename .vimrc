@@ -134,6 +134,8 @@ Plugin 'fatih/molokai'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
 
 set laststatus=2
 
@@ -200,6 +202,8 @@ map <leader>mmk     :call MMK()<CR>
 map <leader>bmk     :call BMK()<CR>
 nnoremap <Leader>gf :GoFmt<CR>
 nnoremap <Leader>gd <C-]>
+nnoremap <Leader>tn :tnext<CR>
+nnoremap <Leader>tp :tprevious<CR>
 nnoremap <Leader>gc :GoCallers<CR>
 nnoremap <leader>gr :GoReferrers<CR>
 nnoremap <leader>gm :GoRename<CR>
