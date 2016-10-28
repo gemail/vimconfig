@@ -93,12 +93,11 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'python.vim'
 
-let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['.\.obj$', '.\.o$', '.\.so$', '.\.exe$', '.\.git$', '.\.swp$']
 " 在nerdtree窗口中禁用BD命令。
 autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
 let NERDTreeMinimalUI=1 "不显示帮助面板
-let NERDTreeDirArrows=1 "目录箭头 1 显示箭头  0传统+-|号
+let NERDTreeDirArrows=0 "目录箭头 1 显示箭头  0传统+-|号
 
 " 侧边栏显示相关函数定义等，依赖http://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
@@ -134,8 +133,8 @@ Plugin 'fatih/molokai'
 
 " airline 状态栏美化。
 Plugin 'bling/vim-airline'
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_color_term = 239
+" Plugin 'Yggdroot/indentLine'
+" let g:indentLine_color_term = 239
 
 set laststatus=2
 
